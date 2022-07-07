@@ -8,15 +8,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="jumbotron jumbotron-fluid text-container">
         Weather Dashboard
     </header>
     <aside>
         <h2>Search for a City</h2>
-        <input type="text" name="search" id="searchCity" placeholder="Enter city here...">
-        <button type="submit">Search</button>
+        <input type="text" name="search" id="search-input" placeholder="Enter city here...">
+        <button type="submit" id="search-btn">Search</button>
+
     </aside>
-    
+    <div>
+        <h2 id=""></h2>
+        <div id="temp"></div>
+        <div id="wind"></div>
+        <div id="humidity"></div>
+        <div id="uv-index"></div>
+    </div>
+    <div>
+        <h3>5-Day Forecast</h3>
+        <div>
+            <h4></h4>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+        </div>
+        <div>
+            <h4></h4>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+        </div>
+        <div>
+            <h4></h4>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+        </div>
+        <div>
+            <h4></h4>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+        </div>
+        <div>
+            <h4></h4>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
