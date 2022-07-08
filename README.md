@@ -30,10 +30,16 @@ THEN I am again presented with current and future conditions for that city
 
 ## Resources Used
 https://openweathermap.org/api/one-call-api#how
+
 https://w3collective.com/fetch-display-api-data-javascript/
+
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
 https://www.w3schools.com/jsref/prop_node_textcontent.asp
+
 https://www.w3schools.com/jsref/met_document_createelement.asp
+
 I also utiltized tutoring and the AskBCS Learning Assistants for this project.
 
