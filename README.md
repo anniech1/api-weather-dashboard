@@ -19,7 +19,13 @@ To install this project, clone this repository and launch the html file in brows
 To use, enter the name of the city you would like to search in the search bar. When deployed, the site looks like the following:
                            
 ## Credits 
+https://www.youtube.com/watch?v=GXrDEA3SIOQ
+
+https://www.youtube.com/watch?v=01WtuEiF4G8
+
 https://openweathermap.org/api/one-call-api#how
+
+https://www.youtube.com/watch?v=f__x1VofV2Q
 
 https://w3collective.com/fetch-display-api-data-javascript/
 
@@ -29,9 +35,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 https://www.w3schools.com/jsref/prop_node_textcontent.asp
 
+https://www.youtube.com/watch?v=01WtuEiF4G8
+
 https://www.w3schools.com/jsref/met_document_createelement.asp
 
-I also utiltized tutoring and the AskBCS Learning Assistants for this project.
+I also utiltized tutoring, office hours, and the AskBCS Learning Assistants for this project.
 
 
 ## License

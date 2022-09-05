@@ -1,286 +1,507 @@
-// // // global variables
-// // const keyAPI = "1ced721104d07f711043eeabff75388a";
-// // const API_URL = `http://api.weatherapi.com/v1/current.json?key=${keyAPI}`;
+// // // // global variables
+// // // const keyAPI = "1ced721104d07f711043eeabff75388a";
+// // // const API_URL = `http://api.weatherapi.com/v1/current.json?key=${keyAPI}`;
 
-// const API_KEY = `1ced721104d07f711043eeabff75388a`;
-// const API_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}`
+// // const API_KEY = `1ced721104d07f711043eeabff75388a`;
+// // const API_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}`
 
-// // //retrieve and console log the data we will be using
+// // // //retrieve and console log the data we will be using
 
-// // // function apiSearch(search, city){
-// // // var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + keyAPI;
-// // //     fetch(requestUrl)
-// // fetch("https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=1ced721104d07f711043eeabff75388a")
-// //   .then((response) => {
-// //     if (response.ok) {
-// //       return response.json();
-// //     } else {
-// //       throw new Error("error with api");
-// //     }
-// //   })
-// //   .then(data => {
-// //     console.log(data);
-// //     displayCity(data)
-// //   })
-// //   .catch((error) => console.error("error with catch", error));
+// // // // function apiSearch(search, city){
+// // // // var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + keyAPI;
+// // // //     fetch(requestUrl)
+// // // fetch("https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=1ced721104d07f711043eeabff75388a")
+// // //   .then((response) => {
+// // //     if (response.ok) {
+// // //       return response.json();
+// // //     } else {
+// // //       throw new Error("error with api");
+// // //     }
+// // //   })
+// // //   .then(data => {
+// // //     console.log(data);
+// // //     displayCity(data)
+// // //   })
+// // //   .catch((error) => console.error("error with catch", error));
 
-// // function displayCity (data){
-// //     const city = data.city.name[0];
-// //     const currentcityDiv = document.getElementById("current-city");
-// //     const cocktailName = cocktail.strDrink;
-// //   const heading = document.createElement("h1");
-// //   heading.innerHTML = cocktailName;
-// //   cocktailDiv.appendChild(heading);
+// // // function displayCity (data){
+// // //     const city = data.city.name[0];
+// // //     const currentcityDiv = document.getElementById("current-city");
+// // //     const cocktailName = cocktail.strDrink;
+// // //   const heading = document.createElement("h1");
+// // //   heading.innerHTML = cocktailName;
+// // //   cocktailDiv.appendChild(heading);
 
-// // }
-
-
-// // // var searchInputEl = document.getElementById("search-input");
-// // // var searchBtnEl = document.getElementById("search-btn");
-// // // var searchCity = "";
-// // // var searchTerm
-
-
-// // // // searchBtnEl.addEventListener("click", saveCity)
-
-// // // function saveCity (event) {
-// // //     event.preventDefault()
-// // //     searchTerm = event.target.value
-// // //         console.log(event.target.value)
-        
-// // //     // if (searchTerm === ""){
-// // //     //     alert("Enter a city!")
-// // //     //     return
-// // //     // }
-// // //     // else 
-// // //     // (saveCity(city));
-// // //     // apiSearch(searchTerm, city)
-// // //     // input.addEventListener
-// // //     // const input = document.querySelector("#search-input")
-// // //     // input.addEventListener("click", function()
-// // //     //     console.log("input vlaue", input.value)
-// // //     //     cities.push(input.value)
-// // //     //     localStorage.setItem("cities", cities))
 // // // }
 
-// // // // let cities = []
 
-// // attempt two
+// // // // var searchInputEl = document.getElementById("search-input");
+// // // // var searchBtnEl = document.getElementById("search-btn");
+// // // // var searchCity = "";
+// // // // var searchTerm
 
-// // var button = document.querySelector('.button')
-// // var searchInput = document.querySelector('.search-input');
-// // var cityName = document.querySelector('.current-city');
-// // var temp = document.querySelector('.temp');
-// // var wind = document.querySelector('.wind');
-// // var hudmitiy = document.querySelector('.humidity');
-// // var uvIndex = document.querySelector('.uv-index')
 
-// // button.addEventListener('click', function(){
-// //   fetch('https://api.openweathermap.org/data/2.5/weather?q='+searchInput.value+ '&units=imperial' + '&appid=' + keyAPI)
-// //   .then(response => response.json())
-// //   .then(data => {
-// //     var nameValue = data['cityName'];
-// //     var tempValue = data['main']['temp'];
-// //     var descValue = data['weather'][0]['description'];
+// // // // // searchBtnEl.addEventListener("click", saveCity)
 
-// //     cityName.innerHTML = nameValue;
-// //     temp.innerHTML = tempValue;
+// // // // function saveCity (event) {
+// // // //     event.preventDefault()
+// // // //     searchTerm = event.target.value
+// // // //         console.log(event.target.value)
+        
+// // // //     // if (searchTerm === ""){
+// // // //     //     alert("Enter a city!")
+// // // //     //     return
+// // // //     // }
+// // // //     // else 
+// // // //     // (saveCity(city));
+// // // //     // apiSearch(searchTerm, city)
+// // // //     // input.addEventListener
+// // // //     // const input = document.querySelector("#search-input")
+// // // //     // input.addEventListener("click", function()
+// // // //     //     console.log("input vlaue", input.value)
+// // // //     //     cities.push(input.value)
+// // // //     //     localStorage.setItem("cities", cities))
+// // // // }
 
-// //   })
-// //   .catch(err => alert("Please reenter a city name!"))
-// // })
+// // // // // let cities = []
 
-// //attempt 3
+// // // attempt two
 
-// class App {
-//     constructor(el) {
-//         this.el = el;
-//         const citiesJson = localStorage.getItem('cities');
-//         let cities = [];
-//         if (citiesJson) {
-//             cities = JSON.parse(citiesJson);
-//         } 
-//         this.cities =  cities.map(c => new City(c.name, this));
-//         this.render();
-//     }
+// // // var button = document.querySelector('.button')
+// // // var searchInput = document.querySelector('.search-input');
+// // // var cityName = document.querySelector('.current-city');
+// // // var temp = document.querySelector('.temp');
+// // // var wind = document.querySelector('.wind');
+// // // var hudmitiy = document.querySelector('.humidity');
+// // // var uvIndex = document.querySelector('.uv-index')
+
+// // // button.addEventListener('click', function(){
+// // //   fetch('https://api.openweathermap.org/data/2.5/weather?q='+searchInput.value+ '&units=imperial' + '&appid=' + keyAPI)
+// // //   .then(response => response.json())
+// // //   .then(data => {
+// // //     var nameValue = data['cityName'];
+// // //     var tempValue = data['main']['temp'];
+// // //     var descValue = data['weather'][0]['description'];
+
+// // //     cityName.innerHTML = nameValue;
+// // //     temp.innerHTML = tempValue;
+
+// // //   })
+// // //   .catch(err => alert("Please reenter a city name!"))
+// // // })
+
+// // attempt 3
+
+
+// // Acceptance Criteria
+// // GIVEN a weather dashboard with form inputs
+
+// // WHEN I search for a city
+// // THEN I am presented with current and future conditions for that city and that city is added to the search history
     
-//     addCity(c) {
-//         this.cities.push(c);
-//         this.render();
-//         this.saveIntoStorage();
-//     }
+// //function that collect user input and display in search history
+// function addResult(){
 
-//     removeCity(c) {
+//   inputCity = document.getElementById("myInput").value;  
+//   historyList = getInfo();
+//   var searchCity =$("<div>") 
+//   searchCity.attr('id',inputCity) 
+//   searchCity.text(inputCity) 
+//   searchCity.addClass("h4")
+
+  
+//   if (historyList.includes(inputCity) === false){
+//       $(".history").append(searchCity)
+//   }
+//   $(".subtitle").attr("style","display:inline")
+//   addInfo(inputCity);
+  
+// }; 
+
+// //add event listener to search history item
+// $(".history").on('click', function(event){
+//   event.preventDefault();
+//   $(".subtitle").attr("style","display:inline")
+//    document.getElementById("myInput").value =  event.target.id;
+//   getResult(); 
+// });
+
+// //add event listner to search button
+// document.getElementById("searchBtn").addEventListener("click", addResult);
+// document.getElementById("searchBtn").addEventListener('click', getResult);
+
+// // WHEN I view current weather conditions for that city
+// // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+// function getResult(){   
+
+//   $(".five-day").empty();
+//   $(".city").empty()
+
+//  inputCity = document.getElementById("myInput").value;   
+//   var countryCode='US';    
+//   var cityCode=inputCity;       
+  
+//   var geoLon;   
+//   var geoLat;
       
+//   var cityName =$("<h>")    
+//   cityName.addClass("h3")  
+//   var temp = $("<div>")    
+//   var wind = $("<div>")    
+//   var humidity = $("<div>")   
+//   var uvIndex = $("<div>")  
+//   var icon =$("<img>")
+//   icon.addClass("icon");    
+//   var dateTime = $("<div>")
 
-//         // Way 2
-//         this.cities = this.cities.filter(city => city.name !== c.name);
+//   $(".city").addClass("list-group")
+//   $(".city").append(cityName)    
+//   $(".city").append(dateTime)    
+//   $(".city").append(icon)    
+//   $(".city").append(temp)    
+//   $(".city").append(wind)    
+//   $(".city").append(humidity)    
+//   $(".city").append(uvIndex)
+  
+  
+//   var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + "&limit=5&appid=7d1b285353ccacd5326159e04cfab063"
+      
+//   //We then pass the requestUrl variable as an argument to the fetch() method, like in the following code:    
+//     fetch(geoUrl)
+  
+//       //Convert the response into JSON. Lastly, we return the JSON-formatted response, as follows:
+//       .then(function (response) {
+//         return response.json();
+//       })
+  
+//       .then(function (data) {
+//         geoLon = data[0].lon;
+//         geoLat = data[0].lat;
+  
+//         //use geoLat and geoLon to fetch the current weather
+//         var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + geoLat + "&lon="+ geoLon + "&exclude=minutely,hourly,alerts&units=imperial&appid=7d1b285353ccacd5326159e04cfab063";
+          
+//         fetch(weatherUrl)
 
-//         this.render();
-//         this.saveIntoStorage();
-//     }
+//         .then(function (response) {
+//           return response.json();
+//         })
+//         .then(function (data) {
+//           // console.log(data)
+          
+//           weatherIcon= data.current.weather[0].icon;
+//           imgSrc = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
+//           icon.attr('src',imgSrc)
+      
+//           cityName.text(cityCode);
+//           //translate utc to date
+//           var date = new Date(data.current.dt * 1000);
+//           dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")");
 
-//     render() {
-//         this.el.innerHTML = '';
-//         this.cities.forEach(city => city.render(this.el))
-//     }
+//           temp.text("Temperature: "+ data.current.temp + " F");
+//           humidity.text("Humidity: " + data.current.humidity + " %");
+//           wind.text("Wind Speed: " + data.current.wind_speed + " MPH");
 
-//     saveIntoStorage() {
-//         localStorage.setItem('cities', JSON.stringify(this.cities))
-//     }
+//           // WHEN I view the UV index
+//           // THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe    
+//           var uvi =$("<div>")
+//           uvIndex.text("UV Index: ");
+//           uvi.text(data.current.uvi)
+//           uvIndex.append(uvi)
+//           uvIndex.addClass("d-flex")
+          
+//           if (data.current.uvi < 3){
+//               uvi.attr("style","background-color:green; color:black; margin-left: 5px")
+//           } else if (data.current.uvi < 6){
+//               uvi.attr("style","background-color:yellow; color:black; margin-left: 5px")
+//           } else if (data.current.uvi < 8){
+//               uvi.attr("style","background-color:orange; color:black; margin-left: 5px")
+//           } else if (data.current.uvi < 11) {
+//               uvi.attr("style","background-color:red; color:black; margin-left: 5px")
+//           } else {
+//               uvi.attr("style","background-color:purple; color:black; margin-left: 5px")
+//           }
 
+//           // WHEN I view future weather conditions for that city
+//           // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+//           //using the data from previous fetch and display the 5 day weather data
+//           for (var i=1;i<6;i++){
+
+//               var blueContainer = $("<div>")
+//               this["futureDate"+i] = $("<h>")
+//               this["futureIcon"+i] = $("<img>")
+//               this["futureTemp"+i] = $("<div>")
+//               this["futureWind"+i] = $("<div>")
+//               this["futureHumidity"+i] = $("<div>")
+//               //translate utc to date
+//               this["forecastDay"+i] = new Date(data.daily[i].dt * 1000);     
+   
+//               (this["futureDate"+i]).text(((this["forecastDay"+i]).getMonth()+1) + "/" + (this["forecastDay"+i]).getDate() + "/" + (this["forecastDay"+i]).getFullYear());
+//               (this["futureTemp"+i]).text("Temperature: "+ data.daily[i].temp.day + " F");
+//               (this["futureWind"+i]).text("Wind: "+ data.daily[i].wind_speed+ " MPH");
+//               (this["futureHumidity"+i]).text("Humidity: " + data.daily[i].humidity + " %");
+//               (this["weatherIcon"+i])= data.daily[i].weather[0].icon;
+      
+//               DateimgSrc = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + ".png";  
+//               (this["futureIcon"+i]).attr('src',DateimgSrc)
+
+//               $(".five-day").append(blueContainer)
+//               blueContainer.append((this["futureDate"+i]));
+//               blueContainer.append((this["futureIcon"+i]));
+//               blueContainer.append((this["futureTemp"+i]));
+//               blueContainer.append((this["futureWind"+i]));
+//               blueContainer.append((this["futureHumidity"+i]));
+
+//               blueContainer.addClass("weather-card")
+//           }
+
+//         })
+//   })
 // }
 
-// class City {
-//     constructor(name, app) {
-//         this.name = name;
-//         this.app = app;
-//     }
+// // WHEN I click on a city in the search history
+// // THEN I am again presented with current and future conditions for that city
 
-//     async getWeather() {
-//         const res = await fetch(`${API_URL}&q=${this.name}`)
-//             .then(response => response.json())
-
-//         return res.current.temp_c ;
-//     }
-
-//     async render(ctr) {
-//         const temp = await this.getWeather();
-//         const cityEl = document.createElement('div');
-//         cityEl.className = 'city-el d-flex flex-column align-items-center'
-//         cityEl.innerHTML = `
-//             <span class="city-temp">${temp}℃</span>    
-//             <span class="city-name">${this.name}</span>
-//             <span class="city-close"><i class="fas fa-times"></i></span>        
-//         `
-//         ctr.appendChild(cityEl);
-//         const close = cityEl.querySelector('.city-close');
-//         close.addEventListener('click', () => this.app.removeCity(this))
-//     }
-
-//     toJSON() {
-//         return {name: this.name};
-//     }
+// //get local storage info
+// function getInfo() {
+//   var currentList =localStorage.getItem("city");
+//   if (currentList !== null ){
+//       freshList = JSON.parse(currentList);
+//       return freshList;
+//   } else {
+//       freshList = [];
+//   }
+//   return freshList;
 // }
+// //add info to local
+// function addInfo (n) {
+//   var addedList = getInfo();
 
-// const app = new App(document.querySelector('.weather-locations'));
+//   if (historyList.includes(inputCity) === false){
+//       addedList.push(n);
+//   }
+ 
+//   localStorage.setItem("city", JSON.stringify(addedList));
+// };
+// //render history
+// function renderInfo () {
+//   var historyList = getInfo();
+//   for (var i = 0; i < historyList.length; i++) {
+//       var inputCity = historyList[i];
+//       var searchCity =$("<div>") 
+//       searchCity.attr('id',inputCity) 
+//       searchCity.text(inputCity) 
+//       searchCity.addClass("h4")
 
-// const modal = document.querySelector('#addCityModal');
-// const bootstrapModal = new bootstrap.Modal(modal, {
-//     keyboard: false
-// })
-// const input = document.querySelector('#cityName')
-// const saveBtn = document.querySelector('#saveCity');
-// saveBtn.addEventListener('click', () => {
-//     addCity();
-// })
-// input.addEventListener('keypress', (ev) => {
-//     if (ev.key === 'Enter') {
-//         addCity();
-//     }
-// })
-// modal.addEventListener('shown.bs.modal', () => {
-//     input.focus();
-// })
+//       $(".history").append(searchCity)
+//   }
+// };
 
-// function addCity() {
-//     const city = new City(input.value, app);
-//     app.addCity(city);
-//     bootstrapModal.hide();
-//     input.value = '';
-// }
+// renderInfo();
 
-//inst classes//
+// Acceptance Criteria
+// GIVEN a weather dashboard with form inputs
 
-const ft = new Fetch();
-const ui = new UI();
+// WHEN I search for a city
+// THEN I am presented with current and future conditions for that city and that city is added to the search history
+    
+//function that collect user input and display in search history
+function addResult(){
 
-//add event listeners//
+  inputCity = document.getElementById("myInput").value;  
+  historyList = getInfo();
+  var searchCity =$("<div>") 
+  searchCity.attr('id',inputCity) 
+  searchCity.text(inputCity) 
+  searchCity.addClass("h4")
 
-const search = document.getElementById("searchUser");
-const button = document.getElementById("submit");
-button.addEventListener("click", () => {
-  const currentVal = search.value;
+  
+  if (historyList.includes(inputCity) === false){
+      $(".history").append(searchCity)
+  }
+  $(".subtitle").attr("style","display:inline")
+  addInfo(inputCity);
+  
+}; 
 
-  ft.getCurrent(currentVal).then((data) => {
-    //call a UI method//
-    ui.populateUI(data);
-    //call saveToLS
-    ui.saveToLS(data);
-  });
+//add event listener to search history item
+$(".history").on('click', function(event){
+  event.preventDefault();
+  $(".subtitle").attr("style","display:inline")
+   document.getElementById("myInput").value =  event.target.id;
+  getResult(); 
 });
 
-//event listener for local storage
+//add event listner to search button
+document.getElementById("searchBtn").addEventListener("click", addResult);
+document.getElementById("searchBtn").addEventListener('click', getResult);
 
-window.addEventListener("DOMContentLoaded", () => {
-  const dataSaved = ui.getFromLS();
-  ui.populateUI(dataSaved);
-});
+// WHEN I view current weather conditions for that city
+// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+function getResult(){   
 
-class Fetch {
-  async getCurrent(input) {
-    const myKey = "39a9a737b07b4b703e3d1cd1e231eedc";
+  $(".five-day").empty();
+  $(".city").empty()
 
-    //make request to url
+ inputCity = document.getElementById("myInput").value;   
+  var countryCode='US';    
+  var cityCode=inputCity;       
+  
+  var geoLon;   
+  var geoLat;
+      
+  var cityName =$("<h>")    
+  cityName.addClass("h3")  
+  var temp = $("<div>")    
+  var wind = $("<div>")    
+  var humidity = $("<div>")   
+  var uvIndex = $("<div>")  
+  var icon =$("<img>")
+  icon.addClass("icon");    
+  var dateTime = $("<div>")
 
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}`
-    );
+  $(".city").addClass("list-group")
+  $(".city").append(cityName)    
+  $(".city").append(dateTime)    
+  $(".city").append(icon)    
+  $(".city").append(temp)    
+  $(".city").append(wind)    
+  $(".city").append(humidity)    
+  $(".city").append(uvIndex)
+  
+  
+  var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + "&limit=5&appid=7d1b285353ccacd5326159e04cfab063"
+      
+  //We then pass the requestUrl variable as an argument to the fetch() method, like in the following code:    
+    fetch(geoUrl)
+  
+      //Convert the response into JSON. Lastly, we return the JSON-formatted response, as follows:
+      .then(function (response) {
+        return response.json();
+      })
+  
+      .then(function (data) {
+        geoLon = data[0].lon;
+        geoLat = data[0].lat;
+  
+        //use geoLat and geoLon to fetch the current weather
+        var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + geoLat + "&lon="+ geoLon + "&exclude=minutely,hourly,alerts&units=imperial&appid=7d1b285353ccacd5326159e04cfab063";
+          
+        fetch(weatherUrl)
 
-    const data = await response.json();
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          // console.log(data)
+          
+          weatherIcon= data.current.weather[0].icon;
+          imgSrc = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
+          icon.attr('src',imgSrc)
+      
+          cityName.text(cityCode);
+          //translate utc to date
+          var date = new Date(data.current.dt * 1000);
+          dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")");
 
-    console.log(data);
+          temp.text("Temperature: "+ data.current.temp + " F");
+          humidity.text("Humidity: " + data.current.humidity + " %");
+          wind.text("Wind Speed: " + data.current.wind_speed + " MPH");
 
-    return data;
-  }
+          // WHEN I view the UV index
+          // THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe    
+          var uvi =$("<div>")
+          uvIndex.text("UV Index: ");
+          uvi.text(data.current.uvi)
+          uvIndex.append(uvi)
+          uvIndex.addClass("d-flex")
+          
+          if (data.current.uvi < 3){
+              uvi.attr("style","background-color:green; color:black; margin-left: 5px")
+          } else if (data.current.uvi < 6){
+              uvi.attr("style","background-color:yellow; color:black; margin-left: 5px")
+          } else if (data.current.uvi < 8){
+              uvi.attr("style","background-color:orange; color:black; margin-left: 5px")
+          } else if (data.current.uvi < 11) {
+              uvi.attr("style","background-color:red; color:black; margin-left: 5px")
+          } else {
+              uvi.attr("style","background-color:purple; color:black; margin-left: 5px")
+          }
+
+          // WHEN I view future weather conditions for that city
+          // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+          //using the data from previous fetch and display the 5 day weather data
+          for (var i=1;i<6;i++){
+
+              var blueContainer = $("<div>")
+              this["futureDate"+i] = $("<h>")
+              this["futureIcon"+i] = $("<img>")
+              this["futureTemp"+i] = $("<div>")
+              this["futureWind"+i] = $("<div>")
+              this["futureHumidity"+i] = $("<div>")
+              //translate utc to date
+              this["forecastDay"+i] = new Date(data.daily[i].dt * 1000);     
+   
+              (this["futureDate"+i]).text(((this["forecastDay"+i]).getMonth()+1) + "/" + (this["forecastDay"+i]).getDate() + "/" + (this["forecastDay"+i]).getFullYear());
+              (this["futureTemp"+i]).text("Temperature: "+ data.daily[i].temp.day + " F");
+              (this["futureWind"+i]).text("Wind: "+ data.daily[i].wind_speed+ " MPH");
+              (this["futureHumidity"+i]).text("Humidity: " + data.daily[i].humidity + " %");
+              (this["weatherIcon"+i])= data.daily[i].weather[0].icon;
+      
+              DateimgSrc = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + ".png";  
+              (this["futureIcon"+i]).attr('src',DateimgSrc)
+
+              $(".five-day").append(blueContainer)
+              blueContainer.append((this["futureDate"+i]));
+              blueContainer.append((this["futureIcon"+i]));
+              blueContainer.append((this["futureTemp"+i]));
+              blueContainer.append((this["futureWind"+i]));
+              blueContainer.append((this["futureHumidity"+i]));
+
+              blueContainer.addClass("weather-card")
+          }
+
+        })
+  })
 }
 
-class UI {
-  constructor() {
-    this.uiContainer = document.getElementById("content");
-    this.city;
-    this.defaultCity = "London";
+// WHEN I click on a city in the search history
+// THEN I am again presented with current and future conditions for that city
+
+//get local storage info
+function getInfo() {
+  var currentList =localStorage.getItem("city");
+  if (currentList !== null ){
+      freshList = JSON.parse(currentList);
+      return freshList;
+  } else {
+      freshList = [];
   }
-
-  populateUI(data) {
-    //de-structure vars
-
-    //add them to inner HTML
-
-    this.uiContainer.innerHTML = `
-        
-        <div class="card mx-auto mt-5" style="width: 18rem;">
-            <div class="card-body justify-content-center">
-                <h5 class="card-title">${data.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Highs of ${data.main.temp_max}. Lows of ${data.main.temp_min}</h6>
-                <p class="card-text ">Weather conditions are described as: ${data.weather[0].description}</p>
-                
-            </div>
-        </div>
-        
-        
-        `;
-  }
-
-  clearUI() {
-    uiContainer.innerHTML = "";
-  }
-
-  saveToLS(data) {
-    localStorage.setItem("city", JSON.stringify(data));
-  }
-
-  getFromLS() {
-    if (localStorage.getItem("city" == null)) {
-      return this.defaultCity;
-    } else {
-      this.city = JSON.parse(localStorage.getItem("city"));
-    }
-
-    return this.city;
-  }
-
-  clearLS() {
-    localStorage.clear();
-  }
+  return freshList;
 }
+//add info to local
+function addInfo (n) {
+  var addedList = getInfo();
+
+  if (historyList.includes(inputCity) === false){
+      addedList.push(n);
+  }
+ 
+  localStorage.setItem("city", JSON.stringify(addedList));
+};
+//render history
+function renderInfo () {
+  var historyList = getInfo();
+  for (var i = 0; i < historyList.length; i++) {
+      var inputCity = historyList[i];
+      var searchCity =$("<div>") 
+      searchCity.attr('id',inputCity) 
+      searchCity.text(inputCity) 
+      searchCity.addClass("h4")
+
+      $(".history").append(searchCity)
+  }
+};
+
+renderInfo();
+
