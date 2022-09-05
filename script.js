@@ -1,5 +1,5 @@
 // // // // global variables
-// // // const keyAPI = "1ced721104d07f711043eeabff75388a";
+const keyAPI = "1ced721104d07f711043eeabff75388a";
 // // // const API_URL = `http://api.weatherapi.com/v1/current.json?key=${keyAPI}`;
 
 // // const API_KEY = `1ced721104d07f711043eeabff75388a`;
@@ -23,30 +23,23 @@
 // // //     displayCity(data)
 // // //   })
 // // //   .catch((error) => console.error("error with catch", error));
-function searchCityData() {
-  var currentList =localStorage.getItem("city");
-  if (currentList !== null ){
-      newResults = JSON.parse(currentList);
-      return newResults;
-  } return newResults;
-}
-function addResult(){
+// function addToCitiesList(){
 
-  inputCity = document.getElementById("myInput").value;  
-  pastCitiesList = searchCityData();
-  var searchCity =$("<div>") 
-  searchCity.attr('id',inputCity) 
-  searchCity.text(inputCity) 
-  searchCity.addClass("h4")
+//   currentCity = document.getElementById("myInput").value;  
+//   pastCities = searchCitiesList();
+//   var searchCity =$("<div>") 
+//   searchCity.attr('id',currentCity) 
+//   searchCity.text(currentCity) 
+//   searchCity.addClass("h4")
 
   
-  if (pastCitiesList.includes(inputCity) === false){
-      $(".history").append(searchCity)
-  }
-  $(".subtitle").attr("style","display:inline")
-  addInfo(inputCity);
+//   if (pastCities.includes(currentCity) === false){
+//       $(".history").append(searchCity)
+//   }
+//   $(".subtitle").attr("style","display:inline")
+//   addInfo(currentCity);
   
-}; 
+// }; 
 // // // function displayCity (data){
 // // //     const city = data.city.name[0];
 // // //     const currentcityDiv = document.getElementById("current-city");
@@ -57,39 +50,44 @@ function addResult(){
 
 // // // }
 
-
-// // // // var searchInputEl = document.getElementById("search-input");
-// // // // var searchBtnEl = document.getElementById("search-btn");
-// // // // var searchCity = "";
-// // // // var searchTerm
-
+function searchCitiesList() {
+  var currentList =localStorage.getItem("city");
+  if (currentList !== null ){
+      allCitiesList = JSON.parse(currentList);
+      return allCitiesList;
+  } 
+  return allCitiesList;
+}
 
 function addInfo (n) {
-  var addedList = searchCityData();
+  var addedList = searchCitiesList();
 
-  if (pastCitiesList.includes(inputCity) === false){
+  if (pastCities.includes(currentCity) === false){
       addedList.push(n);
   }
  
   localStorage.setItem("city", JSON.stringify(addedList));
 };
 
-function renderInfo () {
-  var pastCitiesList = searchCityData();
-  for (var i = 0; i < pastCitiesList.length; i++) {
-      var inputCity = pastCitiesList[i];
+function displayCities () {
+  var pastCities = searchCitiesList();
+  for (var i = 0; i < pastCities.length; i++) {
+      var currentCity = pastCities[i];
       var searchCity =$("<div>") 
-      searchCity.attr('id',inputCity) 
-      searchCity.text(inputCity) 
+      searchCity.attr('id',currentCity) 
+      searchCity.text(currentCity) 
       searchCity.addClass("h4")
 
       $(".history").append(searchCity)
   }
 };
 
-renderInfo();
+displayCities();
 
-
+// // // // var searchInputEl = document.getElementById("search-input");
+// // // // var searchBtnEl = document.getElementById("search-btn");
+// // // // var searchCity = "";
+// // // // var searchTerm
 
 // // // // // searchBtnEl.addEventListener("click", saveCity)
 
@@ -112,6 +110,30 @@ renderInfo();
 // // // //     //     cities.push(input.value)
 // // // //     //     localStorage.setItem("cities", cities))
 // // // // }
+function addToCitiesList(){
+
+  currentCity = document.getElementById("myInput").value;  
+  pastCities = searchCitiesList();
+  var searchCity =$("<div>") 
+  searchCity.attr('id',currentCity) 
+  searchCity.text(currentCity) 
+  searchCity.addClass("h4")
+
+  
+  if (pastCities.includes(currentCity) === false){
+      $(".history").append(searchCity)
+  }
+  $(".subtitle").attr("style","display:inline")
+  addInfo(currentCity);
+  
+}; 
+
+$(".history").on('click', function(event){
+  event.preventDefault();
+  $(".subtitle").attr("style","display:inline")
+   document.getElementById("myInput").value =  event.target.id;
+  displayCityInfo(); 
+});
 
 // // // var button = document.querySelector('.button')
 // // // var searchInput = document.querySelector('.search-input');
@@ -138,27 +160,17 @@ renderInfo();
 
 // // attempt 3
 
+document.getElementById("searchBtn").addEventListener("click", addToCitiesList);
+document.getElementById("searchBtn").addEventListener('click', displayCityInfo);
 
-
-
-$(".history").on('click', function(event){
-  event.preventDefault();
-  $(".subtitle").attr("style","display:inline")
-   document.getElementById("myInput").value =  event.target.id;
-  getResult(); 
-});
-
-document.getElementById("searchBtn").addEventListener("click", addResult);
-document.getElementById("searchBtn").addEventListener('click', getResult);
-
-function getResult(){   
+function displayCityInfo(){   
 
   $(".five-day").empty();
   $(".city").empty()
 
- inputCity = document.getElementById("myInput").value;   
+ currentCity = document.getElementById("myInput").value;   
   var countryCode='US';    
-  var cityCode=inputCity;       
+  var cityCode=currentCity;       
   
   var geoLon;   
   var geoLat;
@@ -168,31 +180,30 @@ function getResult(){
   var temp = $("<div>")    
   var wind = $("<div>")    
   var humidity = $("<div>")   
-  var uvIndex = $("<div>")      
+  var icon =$("<img>")
+  icon.addClass("icon");    
   var dateTime = $("<div>")
 
   $(".city").addClass("list-group")
   $(".city").append(cityName)    
-  $(".city").append(dateTime)      
-  $(".city").append(temp) 
-  $(".city").append(icon)       
+  $(".city").append(dateTime)    
+  $(".city").append(icon)    
+  $(".city").append(temp)    
   $(".city").append(wind)    
   $(".city").append(humidity)    
-  $(".city").append(uvIndex)
   
   
-  var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + "&limit=5&appid=7d1b285353ccacd5326159e04cfab063"
+  var searchAPI = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + '&limit=5&' + '&appid=' + keyAPI
       
-    fetch(geoUrl)
-  
+   
+    fetch(searchAPI)
       .then(function (response) {
         return response.json();
       })
-  
       .then(function (data) {
         geoLon = data[0].lon;
         geoLat = data[0].lat;
-          var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + geoLat + "&lon="+ geoLon + "&exclude=minutely,hourly,alerts&units=imperial&appid=7d1b285353ccacd5326159e04cfab063";
+          var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + geoLat + "&lon="+ geoLon + "&exclude=minutely,hourly,alerts&units=imperial"+ '&appid=' + keyAPI;
           
         fetch(weatherUrl)
 
@@ -200,11 +211,10 @@ function getResult(){
           return response.json();
         })
         .then(function (data) {
-          
-          weatherIcon= data.current.weather[0].icon;
+       weatherIcon= data.current.weather[0].icon;
           imgSrc = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
           icon.attr('src',imgSrc)
-
+      
           cityName.text(cityCode);
           var date = new Date(data.current.dt * 1000);
           dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")");
@@ -213,8 +223,7 @@ function getResult(){
           humidity.text("Humidity: " + data.current.humidity + " %");
           wind.text("Wind Speed: " + data.current.wind_speed + " MPH");
 
-
-         
+  
           for (var i=1;i<6;i++){
 
               var fiveDayForecast = $("<div>")
@@ -231,8 +240,8 @@ function getResult(){
               (this["futureHumidity"+i]).text("Humidity: " + data.daily[i].humidity + " %");
               (this["weatherIcon"+i])= data.daily[i].weather[0].icon;
       
-              DateimgSrc = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + ".png";  
-              (this["futureIcon"+i]).attr('src',DateimgSrc)
+              futureWeatherIcons = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + ".png";  
+              (this["futureIcon"+i]).attr('src',futureWeatherIcons)
 
               $(".five-day").append(fiveDayForecast)
               fiveDayForecast.append((this["futureDate"+i]));
@@ -240,6 +249,7 @@ function getResult(){
               fiveDayForecast.append((this["futureTemp"+i]));
               fiveDayForecast.append((this["futureWind"+i]));
               fiveDayForecast.append((this["futureHumidity"+i]));
+
               fiveDayForecast.addClass("weather-card")
           }
 
