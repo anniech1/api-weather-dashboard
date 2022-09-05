@@ -17,6 +17,8 @@ To install this project, clone this repository and launch the html file in brows
 
 ## Usage
 To use, enter the name of the city you would like to search in the search bar. When deployed, the site looks like the following:
+![Screen Shot 2022-09-05 at 9 13 28 AM](https://user-images.githubusercontent.com/107431063/188458093-0af38c30-b933-44db-a8f8-e58a06f3c3ae.png)
+
                            
 ## Credits 
 https://www.youtube.com/watch?v=GXrDEA3SIOQ
