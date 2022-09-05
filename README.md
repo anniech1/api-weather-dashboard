@@ -20,8 +20,7 @@ To use, enter the name of the city you would like to search in the search bar. W
 ![Screen Shot 2022-09-05 at 9 13 28 AM](https://user-images.githubusercontent.com/107431063/188458093-0af38c30-b933-44db-a8f8-e58a06f3c3ae.png)
 
 After searching, forecast results are displayed like so: 
-![Screen Shot 2022-09-05 at 9 13 28 AM](https://user-images.githubusercontent.com/107431063/188462059-abcfa74d-61ec-40e4-91c5-07bf082e2ea9.png)
-
+![Screen Shot 2022-09-05 at 9 34 30 AM](https://user-images.githubusercontent.com/107431063/188464941-34083fc3-8ce5-463c-a593-75a3d9415d83.png)
 
 Under "Search History" users can see previous searches saved in local storage and click on cities in order to display results.
 
