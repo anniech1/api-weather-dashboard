@@ -23,7 +23,30 @@
 // // //     displayCity(data)
 // // //   })
 // // //   .catch((error) => console.error("error with catch", error));
+function searchCityData() {
+  var currentList =localStorage.getItem("city");
+  if (currentList !== null ){
+      newResults = JSON.parse(currentList);
+      return newResults;
+  } return newResults;
+}
+function addResult(){
 
+  inputCity = document.getElementById("myInput").value;  
+  pastCitiesList = searchCityData();
+  var searchCity =$("<div>") 
+  searchCity.attr('id',inputCity) 
+  searchCity.text(inputCity) 
+  searchCity.addClass("h4")
+
+  
+  if (pastCitiesList.includes(inputCity) === false){
+      $(".history").append(searchCity)
+  }
+  $(".subtitle").attr("style","display:inline")
+  addInfo(inputCity);
+  
+}; 
 // // // function displayCity (data){
 // // //     const city = data.city.name[0];
 // // //     const currentcityDiv = document.getElementById("current-city");
@@ -39,6 +62,33 @@
 // // // // var searchBtnEl = document.getElementById("search-btn");
 // // // // var searchCity = "";
 // // // // var searchTerm
+
+
+function addInfo (n) {
+  var addedList = searchCityData();
+
+  if (pastCitiesList.includes(inputCity) === false){
+      addedList.push(n);
+  }
+ 
+  localStorage.setItem("city", JSON.stringify(addedList));
+};
+
+function renderInfo () {
+  var pastCitiesList = searchCityData();
+  for (var i = 0; i < pastCitiesList.length; i++) {
+      var inputCity = pastCitiesList[i];
+      var searchCity =$("<div>") 
+      searchCity.attr('id',inputCity) 
+      searchCity.text(inputCity) 
+      searchCity.addClass("h4")
+
+      $(".history").append(searchCity)
+  }
+};
+
+renderInfo();
+
 
 
 // // // // // searchBtnEl.addEventListener("click", saveCity)
@@ -62,10 +112,6 @@
 // // // //     //     cities.push(input.value)
 // // // //     //     localStorage.setItem("cities", cities))
 // // // // }
-
-// // // // // let cities = []
-
-// // // attempt two
 
 // // // var button = document.querySelector('.button')
 // // // var searchInput = document.querySelector('.search-input');
@@ -92,23 +138,7 @@
 
 // // attempt 3
 
-function addResult(){
 
-  inputCity = document.getElementById("myInput").value;  
-  historyList = getInfo();
-  var searchCity =$("<div>") 
-  searchCity.attr('id',inputCity) 
-  searchCity.text(inputCity) 
-  searchCity.addClass("h4")
-
-  
-  if (historyList.includes(inputCity) === false){
-      $(".history").append(searchCity)
-  }
-  $(".subtitle").attr("style","display:inline")
-  addInfo(inputCity);
-  
-}; 
 
 
 $(".history").on('click', function(event){
@@ -138,13 +168,14 @@ function getResult(){
   var temp = $("<div>")    
   var wind = $("<div>")    
   var humidity = $("<div>")   
-  var uvIndex = $("<div>")   
+  var uvIndex = $("<div>")      
   var dateTime = $("<div>")
 
   $(".city").addClass("list-group")
   $(".city").append(cityName)    
   $(".city").append(dateTime)      
-  $(".city").append(temp)    
+  $(".city").append(temp) 
+  $(".city").append(icon)       
   $(".city").append(wind)    
   $(".city").append(humidity)    
   $(".city").append(uvIndex)
@@ -170,8 +201,10 @@ function getResult(){
         })
         .then(function (data) {
           
-    
-      
+          weatherIcon= data.current.weather[0].icon;
+          imgSrc = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
+          icon.attr('src',imgSrc)
+
           cityName.text(cityCode);
           var date = new Date(data.current.dt * 1000);
           dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")");
@@ -184,7 +217,7 @@ function getResult(){
          
           for (var i=1;i<6;i++){
 
-              var blueContainer = $("<div>")
+              var fiveDayForecast = $("<div>")
               this["futureDate"+i] = $("<h>")
               this["futureIcon"+i] = $("<img>")
               this["futureTemp"+i] = $("<div>")
@@ -201,54 +234,16 @@ function getResult(){
               DateimgSrc = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + ".png";  
               (this["futureIcon"+i]).attr('src',DateimgSrc)
 
-              $(".five-day").append(blueContainer)
-              blueContainer.append((this["futureDate"+i]));
-              blueContainer.append((this["futureIcon"+i]));
-              blueContainer.append((this["futureTemp"+i]));
-              blueContainer.append((this["futureWind"+i]));
-              blueContainer.append((this["futureHumidity"+i]));
-
-              blueContainer.addClass("weather-card")
+              $(".five-day").append(fiveDayForecast)
+              fiveDayForecast.append((this["futureDate"+i]));
+              fiveDayForecast.append((this["futureIcon"+i]));
+              fiveDayForecast.append((this["futureTemp"+i]));
+              fiveDayForecast.append((this["futureWind"+i]));
+              fiveDayForecast.append((this["futureHumidity"+i]));
+              fiveDayForecast.addClass("weather-card")
           }
 
         })
   })
 }
-
-
-function getInfo() {
-  var currentList =localStorage.getItem("city");
-  if (currentList !== null ){
-      freshList = JSON.parse(currentList);
-      return freshList;
-  } else {
-      freshList = [];
-  }
-  return freshList;
-}
-
-function addInfo (n) {
-  var addedList = getInfo();
-
-  if (historyList.includes(inputCity) === false){
-      addedList.push(n);
-  }
- 
-  localStorage.setItem("city", JSON.stringify(addedList));
-};
-
-function renderInfo () {
-  var historyList = getInfo();
-  for (var i = 0; i < historyList.length; i++) {
-      var inputCity = historyList[i];
-      var searchCity =$("<div>") 
-      searchCity.attr('id',inputCity) 
-      searchCity.text(inputCity) 
-      searchCity.addClass("h4")
-
-      $(".history").append(searchCity)
-  }
-};
-
-renderInfo();
 
