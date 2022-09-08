@@ -26,6 +26,11 @@ After searching, forecast results are displayed like so:
 
 Under "Search History" users can see previous searches saved in local storage and click on cities in order to display results.
 
+Here is a video walkthrough demonstrating this:
+
+[Untitled_ Sep 8, 2022 2_01 AM.webm](https://user-images.githubusercontent.com/107431063/189046191-7b1eaea5-7bfe-4d53-a85a-4d677943e6af.webm)
+
+
                            
 ## Credits 
 https://www.youtube.com/watch?v=GXrDEA3SIOQ
