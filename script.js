@@ -50,7 +50,8 @@ const keyAPI = "1ced721104d07f711043eeabff75388a";
 
 // // // }
 
-function searchCitiesList() {
+function searchCitiesList() { 
+  var allCitiesList=[]
   var currentList =localStorage.getItem("city");
   if (currentList !== null ){
       allCitiesList = JSON.parse(currentList);
